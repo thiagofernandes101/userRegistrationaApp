@@ -19,6 +19,19 @@ export default function App() {
   const [confirmedPassword, setConfirmedPassword] = useState();
   const [users, setUsers] = useState([]);
   const [reloadScreen, setReloadScreen] = useState(true);
+  const [criarTabela, setCriarTabela] = useState(false);
+
+  async function processamentoUseEffect() {
+    if (!criarTabela) {
+      console.log("Verificando necessidade de criar tabelas...");
+      setCriarTabela(true);
+      await createTable();
+    }
+    if (recarregaTela) {
+      console.log("Recarregando dados...");
+      await loadUsers();
+    }
+  }
 
   async function saveUser() {
     let newRegister = false;
@@ -75,10 +88,11 @@ export default function App() {
     Keyboard.dismiss();
   }
 
-  useEffect(() => {
-    loadUsers();
-    console.log("useEffect method");
-  }, [reloadScreen]);
+  useEffect(
+    () => {
+      console.log('executando useffect');
+      processamentoUseEffect(); //necessário método pois aqui não pode utilizar await...
+    }, [recarregaTela]);
 
   async function loadUsers() {
     try {
