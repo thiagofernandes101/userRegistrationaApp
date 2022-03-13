@@ -43,6 +43,49 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: 'space-evenly',
         marginTop: 10
+    },
+    userList: {
+        width: '100%',
+        height: '20%',
+        backgroundColor: '#FFF',
+        marginTop: 20,
+    },
+    user: {
+        backgroundColor: '#ed8f1c',
+        flexDirection: 'row',
+        height: 80,
+        alignItems: 'center',
+        margin: 10,
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
+    },
+    nameList: {
+        width: '50%',
+        fontSize: 18,
+        paddingRight: 10,
+    },
+    emailDataList: {
+        width: '40%',
+        flexDirection: 'row',
+    },
+    actionButtonData: {
+        width: '10%',
+    },
+    emailIcon: {
+        width: 20,
+        height: 25,
+        marginRight: 5,
+    },
+    emailList: {
+        color: "#FFF",
+        fontSize: 18,
     }
 });
 
